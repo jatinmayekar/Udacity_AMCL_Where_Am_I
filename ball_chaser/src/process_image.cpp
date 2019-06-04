@@ -31,9 +31,10 @@ class ps_2
 						// Loop through each pixel in the image and check if its equal to the first one
     				for (int i = 0; i < img.height * img.step; i++) 
 							{
-        				if (img.data[i] == white_pixel) 	
+        				if ((img.data[i] == white_pixel) && (img.data[i+1] == white_pixel) && (img.data[i+2] == white_pixel))	// each element has three
+// values - corresponding to RGB - aligned here columnwise - therefore check all the three RGB channels. White = 255;255;255 
 									{
-										r = i % l; //remainder  - passing through the undesired rows and then checking where the white pixel lies								
+										r = i % l; //remainder - passing through the undesired rows and then checking where the white pixel lies								
 										n = n + 1;										
 										if(r < (l/3))//on left  
 											{     				
@@ -100,6 +101,8 @@ int main(int argc, char** argv)
 	ps_2 mr1;
 
 	ROS_INFO("Chase the ball!");
+
+	ros::Duration(3).sleep();
 
 	ros::spin();
 	
