@@ -22,7 +22,7 @@ class ps_2
 						int white_pixel = 255;
 						int l=img.step;
 						int r = 0;
-						int n = 0;
+						int n1 = 0, n2 = 0, n3 =0;// count the no of white pixels in three sections and compare them later
 						
 						ROS_INFO("Detecting the position of the white ball");
 						//ps_2::drive_robot(0.5,0.5);
@@ -35,33 +35,47 @@ class ps_2
 // values - corresponding to RGB - aligned here columnwise - therefore check all the three RGB channels. White = 255;255;255 
 									{
 										r = i % l; //remainder - passing through the undesired rows and then checking where the white pixel lies								
-										n = n + 1;										
+																				
 										if(r < (l/3))//on left  
-											{     				
-												ps_2::drive_robot(0.2,0.2);
-												ROS_INFO("Left");
-            					}
+											{ 
+												n1 = n1 +1;
+    				 					}
 										else if(r > (2*l/3))//on right  
 											{     				
-												ps_2::drive_robot(0.2,-0.2);
-												ROS_INFO("Right");
+												n2 = n2 +1;
             					}
 										else if(r >= (l/3) && r<= (2*l/3))//in center 
 											{     				
-												ps_2::drive_robot(0.2,0.0);
-												ROS_INFO("Center");
+												n3 = n3 +1;
             					}
 									}
-								
-   						}
+							}
+						// Debug
+						ROS_INFO_STREAM("1_" << n1);
+						ROS_INFO_STREAM("2_" << n2);
+						ROS_INFO_STREAM("3_" << n3);
 					
-						//stop when you don't see white ball
-						if (n == 0)
+						// stop when you don't see white ball
+						if (n1 < 500 && n2 < 500 && n3 < 500)
 						{
 							ps_2::drive_robot(0.0,0.0);	
 							ROS_INFO("Stop! No white ball");
-						}				
-				
+						}	else{			
+						if(n1 > n2 > n3) // on left 
+						{
+							ps_2::drive_robot(0.2,0.2);
+							ROS_INFO("Left");
+						}
+						else if(n1 < n2 < n3) // on right 
+						{
+							ps_2::drive_robot(0.2,0.2);
+							ROS_INFO("Right");
+						}
+						else if(n1 < n2 > n3) // in center
+						{
+							ps_2::drive_robot(0.2,0.2);
+							ROS_INFO("Center");
+						}}
 						//return true;			
 			}
 
@@ -81,6 +95,9 @@ class ps_2
 					{	
         	ROS_ERROR("Failed to call service drive_robot");
 					}
+				
+				// Give time for robto to move and complete the on-going action
+				ros::Duration(3).sleep();
 
 			}
 
@@ -97,13 +114,14 @@ int main(int argc, char** argv)
 	//Initiate node
 	ros::init(argc, argv, "process_image");
 	
+//	while(ros::ok()){	
 	//Create object of ps_1 class
 	ps_2 mr1;
 
 	ROS_INFO("Chase the ball!");
 
-	ros::Duration(3).sleep();
-
+	//ros::Duration(3).sleep();
+	//}
 	ros::spin();
 	
 	return 0;
