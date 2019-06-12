@@ -45,4 +45,4 @@
 
 ### License
 
-Udacity_1_Gazebo_World is Copyright © 2008-2019 Jatin Mayekar. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+Udacity_2_Chase_Ball is Copyright © 2008-2019 Jatin Mayekar. It is free software, and may be redistributed under the terms specified in the LICENSE file.
