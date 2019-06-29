@@ -1,7 +1,8 @@
 global_costmap:
    global_frame: map
    robot_base_frame: robot_footprint
-   update_frequency: 2.0
+   # Lower if you receive warning on 'Transform Timeout' and 'Map Update Loop'
+   update_frequency: 2.0 
    publish_frequency: 2.0
    width: 20.0
    height: 20.0

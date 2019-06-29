@@ -33,4 +33,11 @@
 	<!--launch rviz-->
 	<node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
 
+	<!-- launch AMCL -->
+	<include file="$(find my_robot)/launch/amcl.launch"/>
+
+	<!-- Launch teleop -->
+	<!-- include file="$(find teleop_twist_keyboard)/teleop_twist_keyboard.py"/ -->
+
+
 </launch>
