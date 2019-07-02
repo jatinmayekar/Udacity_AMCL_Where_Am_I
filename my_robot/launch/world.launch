@@ -3,7 +3,7 @@
 <launch>
 
   <!-- World File -->
-  <arg name="world_file" default="$(find my_robot)/worlds/warehouserobo_2"/>
+  <arg name="world_file" default="$(find my_robot)/worlds/warehouse_5"/>
 
   <!-- Launch Gazebo World -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -28,13 +28,14 @@
 	<param name="robot_description" command="$(find xacro)/xacro --inorder  '$(find my_robot)/urdf/my_robot.xacro'"/>
 
 	<!-- Spawn My Robot -->
-	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model my_robot -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model my_robot -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" launch-prefix="xterm -e"/>
 
 	<!--launch rviz-->
 	<node name="rviz" pkg="rviz" type="rviz" respawn="false"/>
 
+
 	<!-- launch AMCL -->
-	<include file="$(find my_robot)/launch/amcl.launch"/>
+	<!--include file="$(find my_robot)/launch/amcl.launch"/-->
 
 	<!-- Launch teleop -->
 	<!-- include file="$(find teleop_twist_keyboard)/teleop_twist_keyboard.py"/ -->
