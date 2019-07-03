@@ -20,9 +20,10 @@
 
 		<!-- Laser parameters -->	
 		<param name="laser_min_range" value="0.01" />
-		<param name="laser_max_range" value="0.05" />
+		<param name="laser_max_range" value="5.0" />
 		<param name="laser_z_hit" value="0.95" />
-		<param name="laser_z_rand" value="0.05" />
+		<param name="laser_z_rand" value="0.015" />
+		<param name="laser_max_beams" value="100" />
 
 		<!-- Odometry parameters -->	
 
@@ -31,10 +32,10 @@
 		<param name="base_frame_id" value="robot_footprint"/>
 		<param name="global_frame_id" value="map"/>
 		
-		<param name="odom_alpha_1" value="0.1" />
-		<param name="odom_alpha_2" value="0.1" />
-		<param name="odom_alpha_3" value="0.1" />
-		<param name="odom_alpha_4" value="0.1" />
+		<param name="odom_alpha_1" value="0.02" />
+		<param name="odom_alpha_2" value="0.02" />
+		<param name="odom_alpha_3" value="0.02" />
+		<param name="odom_alpha_4" value="0.02" />
 		
 	</node>
 

@@ -13,11 +13,11 @@ TrajectoryPlannerROS:
 
   sim_time: 3.0 
 
-  vx_samples: 5.0
-  vtheta_samples: 10.0
+  vx_samples: 10.0
+  vtheta_samples: 20.0
 
-  pdist_scale: 4 #0.6 0.2
-  gdist_scale: 5 #0.8 0.3
+  pdist_scale: 0.2 #0.6 0.2
+  gdist_scale: 0.3 #0.8 0.3
   occdist_scale: 0.01
 
   holonomic_robot: false
