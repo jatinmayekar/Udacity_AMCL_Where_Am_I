@@ -10,5 +10,8 @@
 - See the position of the robot in Gazebo and accordingly select the *2D Pose Estimate* in Rviz(Click on the button then click on the position in map in Rviz and hold to select the direction
 - Then, select the *2D Navigation Goal* button and select any place in the map and wait for the robot to reach its goal!
 - Added a video file in *my_robot/video_pics/* showing the localisation of the robot in the world with various goals
+- In the third terminal, you can then use *teleop* by ruuning `rosrun teleop_twist_keyboard teleop_twist_keyboard.py`
+- Control the robot and enjoy the action! You can see this step at the from 9:28 in my video
+
 
 
