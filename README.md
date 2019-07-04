@@ -1,5 +1,7 @@
 # Udacity_2_AMCL_Where_Am_I
 
+![Output](https://github.com/gonfreces/Udacity_AMCL_Where_Am_I/blob/master/my_robot/video_pics/ezgif.com-gif-maker.gif)
+
 ### Launch
 
 - Open three terminal windows
